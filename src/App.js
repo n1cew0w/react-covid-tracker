@@ -1,15 +1,21 @@
-
 import {useGetCountriesCovidQuery} from "./redux/api/covidApi";
+import {useCallback, useDeferredValue, useEffect, useState} from "react";
+import {debounce} from "lodash";
+import {useDispatch} from "react-redux";
+import {setSearchValue} from "./redux/slices/searchSlice";
+import Input from "./components/Input";
+import CovidInfo from "./components/CovidInfo";
 
 function App() {
-  const {data,error} = useGetCountriesCovidQuery('Poland')
-  console.log(error)
-  console.log(data)
-  return (
-    <div className="App">
 
-    </div>
-  );
+
+
+    return (
+        <div className="App">
+            <Input/>
+            <CovidInfo/>
+        </div>
+    );
 }
 
 export default App;

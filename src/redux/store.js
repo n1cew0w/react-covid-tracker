@@ -1,11 +1,14 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {covidApi} from "./api/covidApi";
 import {setupListeners} from "@reduxjs/toolkit/query";
+import searchSlice from "./slices/searchSlice";
 
 
 export const store = configureStore({
     reducer: {
-        [covidApi.reducerPath]: covidApi.reducer
+        searchSlice,
+        [covidApi.reducerPath]: covidApi.reducer,
+
     },
 
     middleware:(getDefaultMiddleware)=>
