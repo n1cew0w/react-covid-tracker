@@ -13,7 +13,7 @@ const CovidInfo = () => {
     const {data, error} = useGetStatisticsByCountryQuery(selectValue)
 
     useEffect(() => {
-         console.log('SelectVALUE', selectValue)
+         // console.log('SelectVALUE', selectValue)
         // console.log('INFO', data?.response)
     }, [selectValue])
 

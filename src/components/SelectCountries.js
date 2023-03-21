@@ -1,17 +1,18 @@
 import React, {useState} from 'react';
 import {useGetAllCountriesQuery, useGetStatisticsByCountryQuery} from "../redux/api/covidApi";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setSearchValue} from "../redux/slices/searchSlice";
 import {setSelectValue} from "../redux/slices/selectSlice";
 
 const SelectCountries = () => {
     const [select, setSelect] = useState('')
+
     // const {data, error} = useGetStatisticsByCountryQuery(`${selectValue}`)
-    const dispatch = useDispatch()
+
     const {data,error} = useGetAllCountriesQuery()
+    const dispatch = useDispatch()
 
     const onChangeSelect = (event) => {
-
         setSelect(event.target.value)
         console.log('STATE:', select)
         dispatch(setSelectValue(select))

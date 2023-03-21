@@ -8,12 +8,15 @@ const initialState = {
 const selectSlice = createSlice({
     name: 'select',
     initialState,
-    reducers:{
-        setSelectValue(state,action){
+    reducers: {
+        setSelectValue: (state, action) => {
             state.selectValue = action.payload
         }
     }
 })
-export const {setSelectValue} = selectSlice.actions
-
+ export const {setSelectValue} = selectSlice.actions
 export default selectSlice.reducer;
+
+////////
+
+
