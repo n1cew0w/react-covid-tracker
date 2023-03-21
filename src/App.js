@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {setSearchValue} from "./redux/slices/searchSlice";
 import Input from "./components/Input";
 import CovidInfo from "./components/CovidInfo";
+import SelectCountries from "./components/SelectCountries";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
 
     return (
         <div className="App">
+            <SelectCountries/>
             <Input/>
             <CovidInfo/>
         </div>

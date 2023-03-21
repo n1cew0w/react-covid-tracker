@@ -11,7 +11,8 @@ const ApiHeaders = {
 
 
 
-const createRequest = (url,params) => ({ url,params, headers: ApiHeaders});
+const createRequestWithParams = (url,params) => ({ url,params, headers: ApiHeaders});
+const createRequest = (url) => ({ url, headers: ApiHeaders});
 
 export const covidApi = createApi({
     reducerPath: "covidApi",
@@ -20,12 +21,15 @@ export const covidApi = createApi({
     }),
     endpoints: (builder) => ({
 
-        getCountriesCovid: builder.query({
-            query: (arg)=> createRequest(`/statistics`,{country: `${arg}`}),
+        getStatisticsByCountry: builder.query({
+            query: (arg)=> createRequestWithParams(`/statistics`,{country: `${arg}`}),
 
-        })
+        }),
+        getAllCountries: builder.query(({
+            query: () => createRequest(`/countries`)
+        }))
     }),
 
 })
 
-export const {useGetCountriesCovidQuery} = covidApi
+export const {useGetStatisticsByCountryQuery, useGetAllCountriesQuery} = covidApi
