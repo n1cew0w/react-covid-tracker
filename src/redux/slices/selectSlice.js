@@ -14,7 +14,7 @@ const selectSlice = createSlice({
         }
     }
 })
- export const {setSelectValue} = selectSlice.actions
+export const {setSelectValue} = selectSlice.actions
 export default selectSlice.reducer;
 
 ////////

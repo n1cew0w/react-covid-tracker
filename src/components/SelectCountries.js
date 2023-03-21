@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useGetAllCountriesQuery, useGetStatisticsByCountryQuery} from "../redux/api/covidApi";
 import {useDispatch, useSelector} from "react-redux";
 import {setSearchValue} from "../redux/slices/searchSlice";
 import {setSelectValue} from "../redux/slices/selectSlice";
+import {selectSelector} from "../redux/selectors/selectSelectors";
 
 const SelectCountries = () => {
     const [select, setSelect] = useState('')
@@ -12,12 +13,23 @@ const SelectCountries = () => {
     const {data,error} = useGetAllCountriesQuery()
     const dispatch = useDispatch()
 
+    const selectValue = useSelector(selectSelector => {
+        return selectSelector.selectSlice.selectValue
+    })
+
+
     const onChangeSelect = (event) => {
-        setSelect(event.target.value)
-        console.log('STATE:', select)
-        dispatch(setSelectValue(select))
-        console.log(event.target.value)
+            setSelect(event.target.value)
+            console.log('STATE:', select)
+            dispatch(setSelectValue(select))
+            console.log('selector:', selectValue)
+
     }
+    useEffect(()=>{
+        console.log('STATEEFFECT:', select)
+
+
+    },[select])
 
     return (
         <div>
@@ -29,7 +41,7 @@ const SelectCountries = () => {
                 {data?.response &&
                     data.response.map((item) => {
                         return(
-                            <option value={item}>{item}</option>
+                            <option key={item} value={item}>{item}</option>
                             )
 
                     })
