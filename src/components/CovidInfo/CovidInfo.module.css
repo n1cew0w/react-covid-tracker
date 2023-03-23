@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600&display=swap');
+
+.container{
+    justify-content: center;
+    max-width: 1280px;
+    margin: 0 auto;
+
+
+}
+.general_info{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+
+}
+.general_desc{
+    margin-top: 15px;
+    font-size: 23px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+}
+.infected{
+    margin: 15px 0px;
+    color: #641818;
+    text-align: center;
+    font-size: 27px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.container_deaths{
+    justify-content: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    color: red;
+
+
+}
