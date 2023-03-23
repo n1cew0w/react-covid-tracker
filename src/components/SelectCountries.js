@@ -6,7 +6,7 @@ import {setSelectValue} from "../redux/slices/selectSlice";
 import {selectSelector} from "../redux/selectors/selectSelectors";
 
 const SelectCountries = () => {
-    const [select, setSelect] = useState('')
+    // const [select, setSelect] = useState('')
 
     // const {data, error} = useGetStatisticsByCountryQuery(`${selectValue}`)
 
@@ -19,17 +19,8 @@ const SelectCountries = () => {
 
 
     const onChangeSelect = (event) => {
-            setSelect(event.target.value)
-            console.log('STATE:', select)
-            dispatch(setSelectValue(select))
-            console.log('selector:', selectValue)
-
+            dispatch(setSelectValue(event.target.value))
     }
-    useEffect(()=>{
-        console.log('STATEEFFECT:', select)
-
-
-    },[select])
 
     return (
         <div>
