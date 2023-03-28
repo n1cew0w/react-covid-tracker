@@ -9,10 +9,12 @@ const ApiHeaders = {
     "X-RapidAPI-Host": `${API_Host}`
 };
 
+interface ICountries{
+    countries: string
+}
 
-
-const createRequestWithParams = (url,params) => ({ url,params, headers: ApiHeaders});
-const createRequest = (url) => ({ url, headers: ApiHeaders});
+const createRequestWithParams = (url: string,params: Object) => ({ url,params, headers: ApiHeaders});
+const createRequest = (url: string) => ({ url, headers: ApiHeaders});
 
 export const covidApi = createApi({
     reducerPath: "covidApi",
@@ -20,14 +22,13 @@ export const covidApi = createApi({
         baseUrl: `https://covid-193.p.rapidapi.com`
     }),
     endpoints: (builder) => ({
-
         getStatisticsByCountry: builder.query({
             query: (arg)=> createRequestWithParams(`/statistics`,{country: `${arg}`}),
 
         }),
-        getAllCountries: builder.query(({
+        getAllCountries: builder.query({
             query: () => createRequest(`/countries`)
-        }))
+        })
     }),
 
 })

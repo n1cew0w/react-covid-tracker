@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
-import { useGetStatisticsByCountryQuery} from "../../redux/api/covidApi";
+import {useGetStatisticsByCountryQuery} from "../../redux/api/covidApi";
 import {useSelector} from "react-redux";
-import {selectSelector} from "../../redux/selectors/selectSelectors";
 import styles from './CovidInfo.module.css'
+import {useAppSelector} from "../../redux/hooks";
 
 
 const CovidInfo = () => {
 
-    const selectValue = useSelector((selectSelector) => {
+    const selectValue = useAppSelector((selectSelector) => {
         return selectSelector.selectSlice.selectValue
     })
 
